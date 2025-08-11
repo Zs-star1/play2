@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درس الحروف الهجائية التفاعلي - الصف الأول الابتدائي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Amiri', serif;
+        }
+        
+        .activity-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        }
+        
+        .activity-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .letter-bounce {
+            animation: letterBounce 0.6s ease-in-out;
+        }
+        
+        @keyframes letterBounce {
+            0%, 20%, 60%, 100% { transform: translateY(0) scale(1); }
+            40% { transform: translateY(-15px) scale(1.1); }
+            80% { transform: translateY(-8px) scale(1.05); }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.5s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 2s infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8); }
+        }
+        
+        .letter-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: linear-gradient(145deg, #f1f5f9, #e2e8f0);
+        }
+        
+        .letter-card:hover {
+            transform: scale(1.15) rotate(5deg);
+            background: linear-gradient(145deg, #dbeafe, #bfdbfe);
+        }
+        
+        .correct-answer {
+            background: linear-gradient(145deg, #10b981, #059669) !important;
+            color: white;
+            animation: correctPulse 0.5s ease-in-out;
+        }
+        
+        .wrong-answer {
+            background: linear-gradient(145deg, #ef4444, #dc2626) !important;
+            color: white;
+            animation: shake 0.5s ease-in-out;
+        }
+        
+        @keyframes correctPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        .star-animation {
+            animation: starTwinkle 1s ease-in-out;
+        }
+        
+        @keyframes starTwinkle {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.3) rotate(180deg); }
+        }
+        
+        .drawing-canvas {
+            border: 3px dashed #3b82f6;
+            border-radius: 15px;
+            background: linear-gradient(45deg, #f8fafc 25%, transparent 25%), 
+                        linear-gradient(-45deg, #f8fafc 25%, transparent 25%), 
+                        linear-gradient(45deg, transparent 75%, #f8fafc 75%), 
+                        linear-gradient(-45deg, transparent 75%, #f8fafc 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+        
+        .progress-bar {
+            transition: width 0.5s ease-in-out;
+        }
+        
+        .achievement-badge {
+            transition: all 0.3s ease;
+        }
+        
+        .achievement-badge.unlocked {
+            background: linear-gradient(145deg, #fbbf24, #f59e0b);
+            color: white;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white p-6 shadow-2xl">
+        <div class="container mx-auto text-center">
+            <div class="flex items-center justify-center mb-4">
+                <span class="text-4xl mr-3">🏫</span>
+                <h1 class="text-4xl font-bold">مدرسة الزبير بن العوام</h1>
+                <span class="text-4xl ml-3">🏫</span>
+            </div>
+            <h2 class="text-2xl mb-2 font-semibold">درس الحروف الهجائية التفاعلي</h2>
+            <div class="flex items-center justify-center space-x-4 space-x-reverse">
+                <span class="text-xl">📚 الصف الأول الابتدائي</span>
+                <span class="text-xl">📅 العام الدراسي 1447</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Progress and Score Section -->
+    <div class="container mx-auto p-6">
+        <div class="bg-white rounded-3xl shadow-xl p-6 mb-8">
+            <div class="text-center mb-6">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4">🌟 رحلة تعلم الحروف الهجائية 🌟</h3>
+                <p class="text-lg text-gray-600 mb-4">خمسة عشر نشاطاً ممتعاً لإتقان جميع الحروف العربية</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <div class="text-center p-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-2xl text-white">
+                    <div class="text-3xl mb-2">⭐</div>
+                    <div class="text-2xl font-bold" id="total-score">النقاط: 0</div>
+                </div>
+                <div class="text-center p-4 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl text-white">
+                    <div class="text-3xl mb-2">🎯</div>
+                    <div class="text-2xl font-bold" id="activities-completed">الأنشطة: 0/15</div>
+                </div>
+                <div class="text-center p-4 bg-gradient-to-r from-purple-400 to-pink-500 rounded-2xl text-white">
+                    <div class="text-3xl mb-2">🏆</div>
+                    <div class="text-2xl font-bold" id="level-display">المستوى: مبتدئ</div>
+                </div>
+            </div>
+            
+            <div class="bg-gray-200 rounded-full h-4 mb-4">
+                <div class="bg-gradient-to-r from-green-400 to-blue-500 h-4 rounded-full progress-bar" id="progress-bar" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Activities Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- النشاط الأول: استكشاف الحروف -->
+            <div class="activity-card rounded-3xl shadow-xl p-6 border-2 border-blue-200">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-3">🔤</div>
+                    <h4 class="text-2xl font-bold text-blue-800">النشاط الأول: استكشاف الحروف</h4>
+                    <p class="text-gray-600 mt-2">تعرف على جميع الحروف الهجائية</p>
+                </div>
+                <div class="text-center">
+                    <div id="explore-letter" class="text-9xl font-bold text-blue-600 mb-4 letter-bounce">أ</div>
+                    <div id="explore-name" class="text-3xl font-bold text-gray-700 mb-4">ألف</div>
+                    <div id="explore-position" class="text-xl text-gray-600 mb-6">الحرف الأول</div>
+                    <div class="flex justify-center space-x-3 space-x-reverse">
+                        <button onclick="previousExplore()" class="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-3 rounded-xl font-bold transition-all">⏮️ السابق</button>
+                        <button onclick="nextExplore()" class="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-3 rounded-xl font-bold transition-all">التالي ⏭️</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- النشاط الثاني: رسم الحروف -->
+            <div class="activity-card rounded-3xl shadow-xl p-6 border-2 border-green-200">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-3">✏️</div>
+                    <h4 class="text-2xl font-bold text-green-800">النشاط الثاني: رسم الحروف</h4>
+                    <p class="text-gray-600 mt-2">تدرب على كتابة الحروف</p>
+                </div>
+                <div class="text-center">
+                    <div id="draw-letter" class="text-7xl font-bold text-green-600 mb-4">ب</div>
+                    <canvas id="drawing-canvas" width="250" height="180" class="drawing-canvas mx-auto block mb-4"></canvas>
+                    <div class="flex justify-center space-x-3 space-x-reverse">
+                        <button onclick="clearDrawing()" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-xl font-bold">🗑️ مسح</button>
+                        <button onclick="newDrawLetter()" class="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-2 rounded-xl font-bold">📝 حرف جديد</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- النشاط الثالث: أشكال الحروف في الكلمات -->
+            <div class="activity-card rounded-3xl shadow-xl p-6 border-2 border-purple-200">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-3">🔄</div>
+                    <h4 class="text-2xl font-bold text-purple-800">النشاط الثالث: أشكال الحروف</h4>
+                    <p class="text-gray-600 mt-2">تعلم أشكال الحروف المختلفة</p>
+                </div>
+                <div class="text-center">
+                    <div id="forms-display" class="mb-6">
+                        <div class="text-6xl font-bold text-purple-600 mb-4">ت</div>
+                        <div class="grid grid-cols-2 gap-3 text-2xl">
+                            <div class="bg-purple-100 p-3 rounded-xl font-bold">بداية: تـ</div>
+                            <div class="bg-purple-100 p-3 rounded-xl font-bold">وسط: ـتـ</div>
+                            <div class="bg-purple-100 p-3 rounded-xl font-bold">نهاية: ـت</div>
+                            <div class="bg-purple-100 p-3 rounded-xl font-bold">منفصل: ت</div>
+                        </div>
+                    </div>
+                    <button onclick="showNewLetterForms()" class="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-bold">🔄 حرف آخر</button>
+                </div>
+            </div>
+
+            <!-- النشاط الرابع: لعبة المطابقة السريعة -->
+            <div class="activity-card rounded-3xl shadow-xl p-6 border-2 border-red-200">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-3">🎯</div>
+                    <h4 class="text-2xl font-bold text-red-800">النشاط الرابع: المطابقة السريعة</h4>
+                    <p class="text-gray-600 mt-2">اختر الحرف المطابق بسرعة</p>
+                </div>
+                <div class="text-center">
+                    <div class="mb-4">
+                        <div class="text-lg mb-2">الوقت المتبقي: <span id="match-timer" class="font-bold text-red-600">15</span> ثانية</div>
+                        <div id="match-target" class="text-8xl font-bold text-red-600 mb-4 pulse-glow">ج</div>
+                        <div class="text-xl mb-4">اختر الحرف المطابق:</div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 mb-4" id="match-options">
+                        <!-- سيتم إنشاء الخيارات هنا -->
+                    </div>
+                    <div class="text-lg">النتيجة: <span id="match-score" class="font-bold text-red-600">0</span></div>
+                    <button onclick="startMatchingGame()" class="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-6 py-3 rounded-xl font-bold mt-3">🚀 ابدأ اللعبة</button>
+                </div>
+            </div>
+
+            <!-- النشاط الخامس: ترتيب الحروف الأبجدي -->
+            <div class="activity-card rounded-3xl shadow-xl p-6 border-2 border-orange-200">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-3">🔢</div>
+                    <h4 class="text-2xl font-bold text-orange-800">النشاط الخامس: الترتيب الأبجدي</h4>
+                    <p class="text-gray-600 mt-2">رتب الحروف حسب الترتيب الأبجدي</p>
+                </div>
+                <div>
+                    <div class="text-center mb-4">
+                        <div class="text-xl mb-4">رتب هذه الحروف:</div>
+                        <div id="sorting-letters" class="grid grid-cols-3 gap-3 mb-4">
+                            <!-- سيتم إنشاء الحروف المختلطة هنا -->
+                        </div>
+                        <div id="sorting-area" class="min-h-20 border-3 border-dashed border-orange-300 rounded-xl p-4 mb-4 bg-orange-50">
+                            <div class="text-gray-500 text-center">اسحب الحروف هنا بالترتيب الصحيح</div>
+                        </div>
+                        <button onclick="generateNewSorting()" class="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-3 rounded-xl font-bold">🎲 ترتيب جديد</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- النشاط السادس: عائلات الحروف المتشابهة -->
+            <div class="activity-card rounded-3xl shadow-xl p-6 border-2 border-yellow-200">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-3">👥</div>
+                    <h4 class="text-2xl font-bold text-yellow-800">النشاط السادس: عائلات الحروف</h4>
+                    <p class="text-gray-600 mt-2">تعرف على الحروف المتشابهة</p>
+                </div>
+                <div class="text-center">
+                    <div id="family-display" class="mb-6">
+                        <div class="text-2xl mb-4 font-bold">عائلة الحروف المتشابهة:</div>
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="bg-yellow-100 p-4 rounded-xl">
+                                <div class="text-5xl font-bold mb-2">ب - ت - ث</div>
+                                <div class="text-lg text-gray-600">نفس الشكل مع اختلاف النقاط</div>
+                            </div>
+                            <div class="bg-yellow-100 p-4 rounded-xl">
+                                <div class="text-5xl font-bold mb-2">ج - ح - خ</div>
+                                <div class="text-lg text-gray-600">نفس الشكل مع اختلاف النقاط</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="showNewFamily()" class="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white px-6 py-3 rounded-xl font-bold">👨‍👩‍👧‍👦 عائلة أخرى</button>
+                </div>
+            </div>
+
+            <!-- النشاط السابع: البحث عن الكنز -->
+            <div class="activity-card rounded-3xl shadow-xl p-6 border-2 border-indigo-200">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-3">🔍</div>
+                    <h4 class="text-2xl font-bold text-indigo-800">النشاط السابع: البحث عن الكنز</h4>
+                    <p class="text-gray-600 mt-2">ابحث عن الحرف المطلوب في الشبكة</p>
+                </div>
+                <div>
+                    <div class="text-center mb-4">
+                        <div class="text-2xl mb-4">ابحث عن حرف: <span id="treasure-target" class="text-5xl font-bold text-indigo-600 pulse-glow">د</span></div>
+                        <div class="text-lg mb-4">عدد المرات المطلوبة: <span id="treasure-count" class="font-bold text-indigo-600">3</span></div>
+                        <div id="treasure-grid" class="grid grid-cols-5 gap-2 mb-4">
+                            <!-- سيتم إنشاء شبكة الحروف هنا -->
+                        </div>
+                        <div class="text-lg">وجدت: <span id="found-count" class="font-bold text-green-600">0</span></div>
+                        <button onclick="generateNewTreasure()" class="bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white px-6 py-3 rounded-xl font-bold mt-3">🗺️ كنز جديد</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- النشاط الثامن: بناء الكلمات -->
+            <div class="activity-card rounded-3xl shadow-xl p-6 border-2 border-pink-200">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-3">🏗️</div>
+                    <h4 class="text-2xl font-bold text-pink-800">النشاط الثامن: بناء الكلمات</h4>
+                    <p class="text-gray-600 mt-2">كون الكلمة من الحروف المعطاة</p>
+                </div>
+                <div>
+                    <div class="text-center mb-4">
+                        <div class="text-2xl mb-4">كون كلمة: <span id="build-target" class="font-bold text-pink-600 text-3xl">بيت</span></div>
+                        <div class="mb-4">
+                            <img id="word-image" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjIwIiB5PSI0MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjZmY2YjZiIiBzdHJva2U9IiMzNzM3MzciIHN0cm9rZS13aWR0aD0iMiIvPgo8cG9seWdvbiBwb2ludHM9IjEwLDQwIDUwLDEwIDkwLDQwIiBmaWxsPSIjZmY2YjZiIiBzdHJva2U9IiMzNzM3MzciIHN0cm9rZS13aWR0aD0iMiIvPgo8cmVjdCB4PSIzNSIgeT0iNTUiIHdpZHRoPSIxNSIgaGVpZ2h0PSIyNSIgZmlsbD0iIzY2NjY2NiIvPgo8L3N2Zz4K" alt="بيت" class="mx-auto mb-4 w-24 h-24">
+                        </div>
+                        <div id="build-letters" class="grid grid-cols-3 gap-3 mb-4">
+                            <!-- سيتم إنشاء حروف الكلمة هنا -->
+                        </div>
+                        <div id="build-area" class="min-h-20 border-3 border-dashed border-pink-300 rounded-xl p-4 mb-4 bg-pink-50">
+                            <div class="text-gray-500 text-center">اسحب الحروف لتكوين الكلمة</div>
+                        </div>
+                        <button onclick="generateNewWord()" class="bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 py-3 rounded-xl font-bold">🎯 كلمة جديدة</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- النشاط التاسع: الحرف المفقود -->
+            <div class="activity-card rounded-3xl shadow-xl p-6 border-2 border-teal-200">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-3">❓</div>
+                    <h4 class="text-2xl font-bold text-teal-800">النشاط التاسع: الحرف المفقود</h4>
+                    <p class="text-gray-600 mt-2">اكتشف الحرف الناقص في التسلسل</p>
+                </div>
+                <div>
+                    <div class="text-center mb-4">
+                        <div class="text-2xl mb-4">ما الحرف الناقص؟</div>
+                        <div id="missing-sequence" class="text-5xl font-bold mb-6 text-teal-600 bg-teal-50 p-4 rounded-xl">أ - ب - ؟ - ث</div>
+                        <div id="missing-options" class="grid grid-cols-3 gap-3 mb-4">
+                            <!-- سيتم إنشاء الخيارات هنا -->
+                        </div>
+                        <button onclick="generateNewMissing()" class="bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white px-6 py-3 rounded-xl font-bold">🔄 سؤال جديد</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- النشاط العاشر: عداد الحروف -->
+            <div class="activity-card rounded-3xl shadow-xl p-6 border-2 border-cyan-200">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-3">🔢</div>
+                    <h4 class="text-2xl font-bold text-cyan-800">النشاط العاشر: عداد الحروف</h4>
+                    <p class="text-gray-600 mt-2">عد كم مرة يظهر الحرف</p>
+                </div>
+                <div>
+                    <div class="text-center mb-4">
+                        <div class="text-2xl mb-4">كم مرة يظهر حرف: <span id="count-target-letter" class="text-5xl font-bold text-cyan-600">س</span></div>
+                        <div id="count-text-display" class="text-4xl mb-6 p-4 bg-cyan-50 rounded-xl font-bold">س ر س ت س م س</div>
+                        <div class="text-2xl mb-4">العدد: <span id="count-result" class="font-bold text-cyan-600">؟</span></div>
+                        <div id="count-number-options" class="grid grid-cols-4 gap-3 mb-4">
+                            <!-- سيتم إنشاء خيارات الأرقام هنا -->
+                        </div>
+                        <button onclick="generateNewCount()" class="bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white px-6 py-3 rounded-xl font-bold">🎲 تمرين جديد</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- النشاط الحادي عشر: الحروف والحركات -->
+            <div class="activity-card rounded-3xl shadow-xl p-6 border-2 border-emerald-200">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-3">🎵</div>
+                    <h4 class="text-2xl font-bold text-emerald-800">النشاط الحادي عشر: الحركات</h4>
+                    <p class="text-gray-600 mt-2">تعلم الحروف مع الحركات</p>
+                </div>
+                <div class="text-center">
+                    <div id="vowel-lesson" class="mb-6">
+                        <div class="text-8xl font-bold text-emerald-600 mb-4">بَ</div>
+                        <div class="text-3xl mb-6 font-bold text-emerald-700">فتحة</div>
+                        <div class="grid grid-cols-3 gap-4 text-4xl">
+                            <div class="bg-emerald-100 p-4 rounded-xl font-bold hover:bg-emerald-200 cursor-pointer transition-all" onclick="playVowelSound('fatha')">بَ<br><span class="text-lg">فتحة</span></div>
+                            <div class="bg-emerald-100 p-4 rounded-xl font-bold hover:bg-emerald-200 cursor-pointer transition-all" onclick="playVowelSound('kasra')">بِ<br><span class="text-lg">كسرة</span></div>
+                            <div class="bg-emerald-100 p-4 rounded-xl font-bold hover:bg-emerald-200 cursor-pointer transition-all" onclick="playVowelSound('damma')">بُ<br><span class="text-lg">ضمة</span></div>
+                        </div>
+                    </div>
+                    <button onclick="showNewVowelLetter()" class="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white px-6 py-3 rounded-xl font-bold">🔄 حرف آخر</button>
+                </div>
+            </div>
+
+            <!-- النشاط الثاني عشر: ذاكرة الحروف -->
+            <div class="activity-card rounded-3xl shadow-xl p-6 border-2 border-violet-200">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-3">🧠</div>
+                    <h4 class="text-2xl font-bold text-violet-800">النشاط الثاني عشر: ذاكرة الحروف</h4>
+                    <p class="text-gray-600 mt-2">اختبر ذاكرتك مع الحروف</p>
+                </div>
+                <div>
+                    <div class="text-center mb-4">
+                        <div class="text-lg mb-4">المستوى: <span id="memory-level" class="font-bold text-violet-600">1</span> | النتيجة: <span id="memory-score" class="font-bold text-violet-600">0</span></div>
+                        <div id="memory-sequence" class="text-6xl font-bold mb-6 p-4 bg-violet-50 rounded-xl min-h-20 flex items-center justify-center">
+                            استعد للبدء!
+                        </div>
+                        <div id="memory-input" class="grid grid-cols-4 gap-3 mb-4">
+                            <!-- سيتم إنشاء أزرار الحروف هنا -->
+                        </div>
+                        <button onclick="startMemoryGame()" class="bg-gradient-to-r from-violet-500 to-violet-600 hover:from-violet-600 hover:to-violet-700 text-white px-6 py-3 rounded-xl font-bold">🧠 ابدأ اللعبة</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- النشاط الثالث عشر: تصنيف الحروف -->
+            <div class="activity-card rounded-3xl shadow-xl p-6 border-2 border-rose-200">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-3">📊</div>
+                    <h4 class="text-2xl font-bold text-rose-800">النشاط الثالث عشر: تصنيف الحروف</h4>
+                    <p class="text-gray-600 mt-2">صنف الحروف حسب خصائصها</p>
+                </div>
+                <div>
+                    <div class="text-center mb-4">
+                        <div class="text-xl mb-4">صنف الحروف حسب: <span id="classify-criteria" class="font-bold text-rose-600">النقاط</span></div>
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div class="bg-blue-100 p-4 rounded-xl">
+                                <div class="font-bold mb-2 text-blue-800">بدون نقاط</div>
+                                <div id="no-dots-area" class="min-h-16 border-2 border-dashed border-blue-300 rounded-lg p-2 bg-white"></div>
+                            </div>
+                            <div class="bg-red-100 p-4 rounded-xl">
+                                <div class="font-bold mb-2 text-red-800">بنقاط</div>
+                                <div id="with-dots-area" class="min-h-16 border-2 border-dashed border-red-300 rounded-lg p-2 bg-white"></div>
+                            </div>
+                        </div>
+                        <div id="classify-letters-pool" class="grid grid-cols-4 gap-3 mb-4">
+                            <!-- سيتم إنشاء الحروف للتصنيف هنا -->
+                        </div>
+                        <button onclick="generateNewClassification()" class="bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white px-6 py-3 rounded-xl font-bold">🔄 تصنيف جديد</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- النشاط الرابع عشر: سباق الحروف -->
+            <div class="activity-card rounded-3xl shadow-xl p-6 border-2 border-amber-200">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-3">🏃‍♂️</div>
+                    <h4 class="text-2xl font-bold text-amber-800">النشاط الرابع عشر: سباق الحروف</h4>
+                    <p class="text-gray-600 mt-2">اختبار سرعة التعرف على الحروف</p>
+                </div>
+                <div>
+                    <div class="text-center mb-4">
+                        <div class="flex justify-center items-center space-x-4 space-x-reverse mb-4">
+                            <div class="text-lg">الوقت: <span id="race-timer" class="font-bold text-red-600">30</span>s</div>
+                            <div class="text-lg">النتيجة: <span id="race-score" class="font-bold text-green-600">0</span></div>
+                            <div class="text-lg">المستوى: <span id="race-level" class="font-bold text-amber-600">1</span></div>
+                        </div>
+                        <div id="race-letter" class="text-9xl font-bold text-amber-600 mb-4 pulse-glow">ز</div>
+                        <div class="text-xl mb-4">اضغط على الحرف الصحيح بسرعة!</div>
+                        <div id="race-options" class="grid grid-cols-2 gap-3 mb-4">
+                            <!-- سيتم إنشاء خيارات السباق هنا -->
+                        </div>
+                        <button onclick="startRaceGame()" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-6 py-3 rounded-xl font-bold">🏁 ابدأ السباق</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- النشاط الخامس عشر: الامتحان الشامل -->
+            <div class="activity-card rounded-3xl shadow-xl p-6 border-2 border-gray-200 bg-gradient-to-br from-yellow-50 to-orange-50">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-3">🏆</div>
+                    <h4 class="text-2xl font-bold text-gray-800">النشاط الخامس عشر: الامتحان الشامل</h4>
+                    <p class="text-gray-600 mt-2">اختبار شامل لجميع ما تعلمته</p>
+                </div>
+                <div>
+                    <div class="text-center mb-4">
+                        <div class="mb-4">
+                            <div class="text-lg mb-2">السؤال <span id="exam-question-number">1</span> من 10</div>
+                            <div class="bg-gray-200 rounded-full h-3 mb-4">
+                                <div class="bg-gradient-to-r from-green-400 to-blue-500 h-3 rounded-full transition-all" id="exam-progress" style="width: 10%"></div>
+                            </div>
+                        </div>
+                        <div class="text-lg mb-4">جميع الحروف الهجائية:</div>
+                        <div id="all-letters-display" class="grid grid-cols-7 gap-2 mb-6 text-2xl font-bold">
+                            <!-- سيتم عرض جميع الحروف هنا -->
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-inner mb-4">
+                            <div class="text-xl mb-4">السؤال: <span id="exam-question" class="font-bold text-purple-600">ما الحرف رقم 5؟</span></div>
+                            <div id="exam-options" class="grid grid-cols-2 gap-3 mb-4">
+                                <!-- سيتم إنشاء خيارات الامتحان هنا -->
+                            </div>
+                        </div>
+                        <div class="text-lg mb-4">النتيجة: <span id="exam-score" class="font-bold text-green-600">0</span>/10</div>
+                        <button onclick="startComprehensiveExam()" class="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-bold">📝 ابدأ الامتحان</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Achievements Section -->
+        <div class="mt-12 bg-white rounded-3xl shadow-xl p-8">
+            <h3 class="text-3xl font-bold text-center mb-8">🏆 شارات الإنجاز</h3>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6" id="achievements-grid">
+                <div class="achievement-badge text-center p-4 bg-gray-100 rounded-2xl" data-achievement="explorer">
+                    <div class="text-4xl mb-2">🔤</div>
+                    <div class="text-sm font-bold">مستكشف الحروف</div>
+                </div>
+                <div class="achievement-badge text-center p-4 bg-gray-100 rounded-2xl" data-achievement="writer">
+                    <div class="text-4xl mb-2">✏️</div>
+                    <div class="text-sm font-bold">كاتب ماهر</div>
+                </div>
+                <div class="achievement-badge text-center p-4 bg-gray-100 rounded-2xl" data-achievement="matcher">
+                    <div class="text-4xl mb-2">🎯</div>
+                    <div class="text-sm font-bold">خبير المطابقة</div>
+                </div>
+                <div class="achievement-badge text-center p-4 bg-gray-100 rounded-2xl" data-achievement="memory">
+                    <div class="text-4xl mb-2">🧠</div>
+                    <div class="text-sm font-bold">قوة الذاكرة</div>
+                </div>
+                <div class="achievement-badge text-center p-4 bg-gray-100 rounded-2xl" data-achievement="champion">
+                    <div class="text-4xl mb-2">🏆</div>
+                    <div class="text-sm font-bold">بطل الحروف</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global Variables
+        let totalScore = 0;
+        let activitiesCompleted = 0;
+        let currentExploreIndex = 0;
+        let currentDrawIndex = 1;
+        let currentFormIndex = 2;
+        let isDrawing = false;
+        let gameTimers = {};
+        let gameStates = {};
+
+        // Arabic Letters Data
+        const arabicLetters = [
+            {letter: 'أ', name: 'ألف'}, {letter: 'ب', name: 'باء'}, {letter: 'ت', name: 'تاء'}, 
+            {letter: 'ث', name: 'ثاء'}, {letter: 'ج', name: 'جيم'}, {letter: 'ح', name: 'حاء'}, 
+            {letter: 'خ', name: 'خاء'}, {letter: 'د', name: 'دال'}, {letter: 'ذ', name: 'ذال'}, 
+            {letter: 'ر', name: 'راء'}, {letter: 'ز', name: 'زاي'}, {letter: 'س', name: 'سين'}, 
+            {letter: 'ش', name: 'شين'}, {letter: 'ص', name: 'صاد'}, {letter: 'ض', name: 'ضاد'}, 
+            {letter: 'ط', name: 'طاء'}, {letter: 'ظ', name: 'ظاء'}, {letter: 'ع', name: 'عين'}, 
+            {letter: 'غ', name: 'غين'}, {letter: 'ف', name: 'فاء'}, {letter: 'ق', name: 'قاف'}, 
+            {letter: 'ك', name: 'كاف'}, {letter: 'ل', name: 'لام'}, {letter: 'م', name: 'ميم'}, 
+            {letter: 'ن', name: 'نون'}, {letter: 'ه', name: 'هاء'}, {letter: 'و', name: 'واو'}, 
+            {letter: 'ي', name: 'ياء'}
+        ];
+
+        const letterForms = {
+            'ت': {beginning: 'تـ', middle: 'ـتـ', end: 'ـت', isolated: 'ت'},
+            'ب': {beginning: 'بـ', middle: 'ـبـ', end: 'ـب', isolated: 'ب'},
+            'ج': {beginning: 'جـ', middle: 'ـجـ', end: 'ـج', isolated: 'ج'},
+            'س': {beginning: 'سـ', middle: 'ـسـ', end: 'ـس', isolated: 'س'},
+            'ع': {beginning: 'عـ', middle: 'ـعـ', end: 'ـع', isolated: 'ع'},
+            'ف': {beginning: 'فـ', middle: 'ـفـ', end: 'ـف', isolated: 'ف'},
+            'ق': {beginning: 'قـ', middle: 'ـقـ', end: 'ـق', isolated: 'ق'},
+            'ك': {beginning: 'كـ', middle: 'ـكـ', end: 'ـك', isolated: 'ك'},
+            'ل': {beginning: 'لـ', middle: 'ـلـ', end: 'ـل', isolated: 'ل'},
+            'م': {beginning: 'مـ', middle: 'ـمـ', end: 'ـم', isolated: 'م'},
+            'ن': {beginning: 'نـ', middle: 'ـنـ', end: 'ـن', isolated: 'ن'},
+            'ه': {beginning: 'هـ', middle: 'ـهـ', end: 'ـه', isolated: 'ه'},
+            'ي': {beginning: 'يـ', middle: 'ـيـ', end: 'ـي', isolated: 'ي'}
+        };
+
+        const similarFamilies = [
+            {name: 'عائلة الباء', letters: ['ب', 'ت', 'ث'], description: 'نفس الشكل مع اختلاف النقاط'},
+            {name: 'عائلة الجيم', letters: ['ج', 'ح', 'خ'], description: 'نفس الشكل مع اختلاف النقاط'},
+            {name: 'عائلة الدال', letters: ['د', 'ذ'], description: 'نفس الشكل مع اختلاف النقاط'},
+            {name: 'عائلة الراء', letters: ['ر', 'ز'], description: 'نفس الشكل مع اختلاف النقاط'},
+            {name: 'عائلة السين', letters: ['س', 'ش'], description: 'نفس الشكل مع اختلاف النقاط'},
+            {name: 'عائلة الصاد', letters: ['ص', 'ض'], description: 'نفس الشكل مع اختلاف النقاط'},
+            {name: 'عائلة الطاء', letters: ['ط', 'ظ'], description: 'نفس الشكل مع اختلاف النقاط'},
+            {name: 'عائلة العين', letters: ['ع', 'غ'], description: 'نفس الشكل مع اختلاف النقاط'},
+            {name: 'عائلة الفاء', letters: ['ف', 'ق'], description: 'نفس الشكل مع اختلاف النقاط'}
+        ];
+
+        const simpleWords = [
+            {word: 'بيت', image: 'house'}, {word: 'كتاب', image: 'book'}, {word: 'قلم', image: 'pen'}, 
+            {word: 'باب', image: 'door'}, {word: 'نور', image: 'light'}, {word: 'شمس', image: 'sun'}, 
+            {word: 'قمر', image: 'moon'}, {word: 'ورد', image: 'flower'}, {word: 'ماء', image: 'water'},
+            {word: 'نار', image: 'fire'}, {word: 'طير', image: 'bird'}, {word: 'سمك', image: 'fish'}
+        ];
+
+        const lettersWithDots = ['ب', 'ت', 'ث', 'ج', 'خ', 'ذ', 'ز', 'ش', 'ض', 'ظ', 'غ', 'ف', 'ق', 'ن', 'ي'];
+        const lettersWithoutDots = ['أ', 'ح', 'د', 'ر', 'س', 'ص', 'ط', 'ع', 'ك', 'ل', 'م', 'ه', 'و'];
+
+        // Utility Functions
+        function updateScore(points) {
+            totalScore += points;
+            document.getElementById('total-score').textContent = `النقاط: ${totalScore}`;
+            updateProgress();
+            checkAchievements();
+            
+            // Add visual feedback
+            const scoreElement = document.getElementById('total-score');
+            scoreElement.classList.add('star-animation');
+            setTimeout(() => scoreElement.classList.remove('star-animation'), 1000);
+        }
+
+        function updateProgress() {
+            const progressPercentage = Math.min((totalScore / 1000) * 100, 100);
+            document.getElementById('progress-bar').style.width = `${progressPercentage}%`;
+            
+            // Update level
+            let level = 'مبتدئ';
+            if (totalScore >= 800) level = 'خبير';
+            else if (totalScore >= 500) level = 'متقدم';
+            else if (totalScore >= 200) level = 'متوسط';
+            
+            document.getElementById('level-display').textContent = `المستوى: ${level}`;
+        }
+
+        function checkAchievements() {
+            const achievements = {
+                explorer: totalScore >= 100,
+                writer: totalScore >= 200,
+                matcher: totalScore >= 300,
+                memory: totalScore >= 500,
+                champion: totalScore >= 800
+            };
+
+            Object.keys(achievements).forEach(achievement => {
+                if (achievements[achievement]) {
+                    const badge = document.querySelector(`[data-achievement="${achievement}"]`);
+                    if (!badge.classList.contains('unlocked')) {
+                        badge.classList.add('unlocked');
+                        showAchievementNotification(achievement);
+                    }
+                }
+            });
+        }
+
+        function showAchievementNotification(achievement) {
+            const notifications = {
+                explorer: 'مبروك! حصلت على شارة مستكشف الحروف! 🔤',
+                writer: 'رائع! حصلت على شارة الكاتب الماهر! ✏️',
+                matcher: 'ممتاز! حصلت على شارة خبير المطابقة! 🎯',
+                memory: 'مذهل! حصلت على شارة قوة الذاكرة! 🧠',
+                champion: 'تهانينا! أصبحت بطل الحروف! 🏆'
+            };
+            
+            alert(notifications[achievement]);
+        }
+
+        function getRandomLetter() {
+            return arabicLetters[Math.floor(Math.random() * arabicLetters.length)];
+        }
+
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+
+        // Activity 1: Letter Explorer
+        function nextExplore() {
+            currentExploreIndex = (currentExploreIndex + 1) % arabicLetters.length;
+            updateExploreDisplay();
+            updateScore(5);
+        }
+
+        function previousExplore() {
+            currentExploreIndex = currentExploreIndex === 0 ? arabicLetters.length - 1 : currentExploreIndex - 1;
+            updateExploreDisplay();
+            updateScore(5);
+        }
+
+        function updateExploreDisplay() {
+            const letter = arabicLetters[currentExploreIndex];
+            document.getElementById('explore-letter').textContent = letter.letter;
+            document.getElementById('explore-name').textContent = letter.name;
+            document.getElementById('explore-position').textContent = `الحرف ${currentExploreIndex + 1}`;
+            
+            document.getElementById('explore-letter').classList.add('letter-bounce');
+            setTimeout(() => {
+                document.getElementById('explore-letter').classList.remove('letter-bounce');
+            }, 600);
+        }
+
+        // Activity 2: Drawing Letters
+        const drawingCanvas = document.getElementById('drawing-canvas');
+        const drawingCtx = drawingCanvas.getContext('2d');
+        
+        drawingCanvas.addEventListener('mousedown', startDrawing);
+        drawingCanvas.addEventListener('mousemove', drawMove);
+        drawingCanvas.addEventListener('mouseup', stopDrawing);
+        drawingCanvas.addEventListener('mouseout', stopDrawing);
+
+        // Touch events for mobile
+        drawingCanvas.addEventListener('touchstart', handleTouch);
+        drawingCanvas.addEventListener('touchmove', handleTouch);
+        drawingCanvas.addEventListener('touchend', stopDrawing);
+
+        function handleTouch(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown' : 'mousemove', {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            drawingCanvas.dispatchEvent(mouseEvent);
+        }
+
+        function startDrawing(e) {
+            isDrawing = true;
+            drawMove(e);
+        }
+
+        function drawMove(e) {
+            if (!isDrawing) return;
+            
+            const rect = drawingCanvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            drawingCtx.lineWidth = 4;
+            drawingCtx.lineCap = 'round';
+            drawingCtx.strokeStyle = '#10b981';
+            
+            drawingCtx.lineTo(x, y);
+            drawingCtx.stroke();
+            drawingCtx.beginPath();
+            drawingCtx.moveTo(x, y);
+        }
+
+        function stopDrawing() {
+            if (isDrawing) {
+                isDrawing = false;
+                drawingCtx.beginPath();
+                updateScore(10);
+            }
+        }
+
+        function clearDrawing() {
+            drawingCtx.clearRect(0, 0, drawingCanvas.width, drawingCanvas.height);
+        }
+
+        function newDrawLetter() {
+            currentDrawIndex = (currentDrawIndex + 1) % arabicLetters.length;
+            document.getElementById('draw-letter').textContent = arabicLetters[currentDrawIndex].letter;
+            clearDrawing();
+            updateScore(5);
+        }
+
+        // Activity 3: Letter Forms
+        function showNewLetterForms() {
+            const formLetters = Object.keys(letterForms);
+            currentFormIndex = (currentFormIndex + 1) % formLetters.length;
+            const letter = formLetters[currentFormIndex];
+            const forms = letterForms[letter];
+            
+            document.getElementById('forms-display').innerHTML = `
+                <div class="text-6xl font-bold text-purple-600 mb-4">${letter}</div>
+                <div class="grid grid-cols-2 gap-3 text-2xl">
+                    <div class="bg-purple-100 p-3 rounded-xl font-bold hover:bg-purple-200 transition-all cursor-pointer">بداية: ${forms.beginning}</div>
+                    <div class="bg-purple-100 p-3 rounded-xl font-bold hover:bg-purple-200 transition-all cursor-pointer">وسط: ${forms.middle}</div>
+                    <div class="bg-purple-100 p-3 rounded-xl font-bold hover:bg-purple-200 transition-all cursor-pointer">نهاية: ${forms.end}</div>
+                    <div class="bg-purple-100 p-3 rounded-xl font-bold hover:bg-purple-200 transition-all cursor-pointer">منفصل: ${forms.isolated}</div>
+                </div>
+            `;
+            updateScore(5);
+        }
+
+        // Activity 4: Quick Matching Game
+        function startMatchingGame() {
+            gameStates.matching = {
+                timeLeft: 15,
+                score: 0,
+                active: true
+            };
+            
+            document.getElementById('match-score').textContent = '0';
+            generateMatchQuestion();
+            
+            gameTimers.matching = setInterval(() => {
+                gameStates.matching.timeLeft--;
+                document.getElementById('match-timer').textContent = gameStates.matching.timeLeft;
+                
+                if (gameStates.matching.timeLeft <= 0) {
+                    endMatchingGame();
+                }
+            }, 1000);
+        }
+
+        function generateMatchQuestion() {
+            if (!gameStates.matching || !gameStates.matching.active) return;
+            
+            const targetLetter = getRandomLetter().letter;
+            document.getElementById('match-target').textContent = targetLetter;
+            
+            const options = [targetLetter];
+            while (options.length < 4) {
+                const randomLetter = getRandomLetter().letter;
+                if (!options.includes(randomLetter)) {
+                    options.push(randomLetter);
+                }
+            }
+            
+            const shuffledOptions = shuffleArray(options);
+            const optionsContainer = document.getElementById('match-options');
+            optionsContainer.innerHTML = '';
+            
+            shuffledOptions.forEach(option => {
+                const button = document.createElement('button');
+                button.className = 'letter-card p-4 rounded-xl text-3xl font-bold transition-all';
+                button.textContent = option;
+                button.onclick = () => checkMatchAnswer(option, targetLetter);
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function checkMatchAnswer(selected, target) {
+            if (!gameStates.matching || !gameStates.matching.active) return;
+            
+            if (selected === target) {
+                gameStates.matching.score++;
+                document.getElementById('match-score').textContent = gameStates.matching.score;
+                updateScore(15);
+                setTimeout(generateMatchQuestion, 500);
+            }
+        }
+
+        function endMatchingGame() {
+            if (gameTimers.matching) {
+                clearInterval(gameTimers.matching);
+                gameTimers.matching = null;
+            }
+            
+            if (gameStates.matching) {
+                gameStates.matching.active = false;
+                alert(`انتهت اللعبة! نتيجتك: ${gameStates.matching.score}`);
+            }
+        }
+
+        // Activity 5: Letter Sorting
+        function generateNewSorting() {
+            const startIndex = Math.floor(Math.random() * (arabicLetters.length - 4));
+            const sequence = arabicLetters.slice(startIndex, startIndex + 4);
+            const scrambled = shuffleArray(sequence);
+            
+            const container = document.getElementById('sorting-letters');
+            container.innerHTML = '';
+            
+            scrambled.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'letter-card p-4 rounded-xl text-2xl font-bold cursor-pointer';
+                div.textContent = item.letter;
+                div.draggable = true;
+                div.ondragstart = (e) => e.dataTransfer.setData('text', item.letter);
+                container.appendChild(div);
+            });
+            
+            setupSortingDropZone();
+        }
+
+        function setupSortingDropZone() {
+            const sortingArea = document.getElementById('sorting-area');
+            sortingArea.innerHTML = '<div class="text-gray-500 text-center">اسحب الحروف هنا بالترتيب الصحيح</div>';
+            
+            sortingArea.ondragover = (e) => e.preventDefault();
+            sortingArea.ondrop = (e) => {
+                e.preventDefault();
+                const letter = e.dataTransfer.getData('text');
+                
+                if (sortingArea.children.length === 1 && sortingArea.children[0].textContent.includes('اسحب')) {
+                    sortingArea.innerHTML = '';
+                }
+                
+                const span = document.createElement('span');
+                span.className = 'inline-block bg-green-100 p-3 rounded-xl mr-2 text-2xl font-bold';
+                span.textContent = letter;
+                sortingArea.appendChild(span);
+                updateScore(10);
+            };
+        }
+
+        // Activity 6: Letter Families
+        function showNewFamily() {
+            const randomFamily = similarFamilies[Math.floor(Math.random() * similarFamilies.length)];
+            
+            document.getElementById('family-display').innerHTML = `
+                <div class="text-2xl mb-4 font-bold">${randomFamily.name}:</div>
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="bg-yellow-100 p-4 rounded-xl hover:bg-yellow-200 transition-all">
+                        <div class="text-5xl font-bold mb-2">${randomFamily.letters.join(' - ')}</div>
+                        <div class="text-lg text-gray-600">${randomFamily.description}</div>
+                    </div>
+                </div>
+            `;
+            updateScore(5);
+        }
+
+        // Activity 7: Treasure Hunt
+        function generateNewTreasure() {
+            const target = getRandomLetter().letter;
+            const targetCount = Math.floor(Math.random() * 3) + 2;
+            
+            document.getElementById('treasure-target').textContent = target;
+            document.getElementById('treasure-count').textContent = targetCount;
+            document.getElementById('found-count').textContent = '0';
+            
+            const grid = document.getElementById('treasure-grid');
+            grid.innerHTML = '';
+            
+            // Create grid with target letters
+            const letters = Array(targetCount).fill(target);
+            while (letters.length < 25) {
+                letters.push(getRandomLetter().letter);
+            }
+            
+            const shuffledLetters = shuffleArray(letters);
+            let foundCount = 0;
+            
+            shuffledLetters.forEach(letter => {
+                const div = document.createElement('div');
+                div.className = 'letter-card p-3 rounded-xl text-2xl font-bold cursor-pointer';
+                div.textContent = letter;
+                div.onclick = () => {
+                    if (letter === target && !div.classList.contains('correct-answer')) {
+                        div.classList.add('correct-answer');
+                        foundCount++;
+                        document.getElementById('found-count').textContent = foundCount;
+                        updateScore(10);
+                        
+                        if (foundCount === targetCount) {
+                            setTimeout(() => {
+                                alert('مبروك! وجدت جميع الحروف! 🎉');
+                                generateNewTreasure();
+                            }, 500);
+                        }
+                    } else if (letter !== target) {
+                        div.classList.add('wrong-answer');
+                        setTimeout(() => div.classList.remove('wrong-answer'), 500);
+                    }
+                };
+                grid.appendChild(div);
+            });
+        }
+
+        // Activity 8: Word Building
+        function generateNewWord() {
+            const wordData = simpleWords[Math.floor(Math.random() * simpleWords.length)];
+            document.getElementById('build-target').textContent = wordData.word;
+            
+            const letters = wordData.word.split('');
+            const shuffledLetters = shuffleArray(letters);
+            
+            const container = document.getElementById('build-letters');
+            container.innerHTML = '';
+            
+            shuffledLetters.forEach(letter => {
+                const div = document.createElement('div');
+                div.className = 'letter-card p-4 rounded-xl text-2xl font-bold cursor-pointer';
+                div.textContent = letter;
+                div.draggable = true;
+                div.ondragstart = (e) => e.dataTransfer.setData('text', letter);
+                container.appendChild(div);
+            });
+            
+            setupWordBuildingDropZone();
+        }
+
+        function setupWordBuildingDropZone() {
+            const buildArea = document.getElementById('build-area');
+            buildArea.innerHTML = '<div class="text-gray-500 text-center">اسحب الحروف لتكوين الكلمة</div>';
+            
+            buildArea.ondragover = (e) => e.preventDefault();
+            buildArea.ondrop = (e) => {
+                e.preventDefault();
+                const letter = e.dataTransfer.getData('text');
+                
+                if (buildArea.children.length === 1 && buildArea.children[0].textContent.includes('اسحب')) {
+                    buildArea.innerHTML = '';
+                }
+                
+                const span = document.createElement('span');
+                span.className = 'inline-block bg-green-100 p-3 rounded-xl mr-1 text-2xl font-bold';
+                span.textContent = letter;
+                buildArea.appendChild(span);
+                updateScore(10);
+            };
+        }
+
+        // Activity 9: Missing Letter
+        function generateNewMissing() {
+            const startIndex = Math.floor(Math.random() * (arabicLetters.length - 4));
+            const sequence = arabicLetters.slice(startIndex, startIndex + 4);
+            const missingIndex = Math.floor(Math.random() * 4);
+            const missing = sequence[missingIndex].letter;
+            
+            let displaySequence = sequence.map((item, index) => 
+                index === missingIndex ? '؟' : item.letter
+            ).join(' - ');
+            
+            document.getElementById('missing-sequence').textContent = displaySequence;
+            
+            const options = [missing];
+            while (options.length < 3) {
+                const randomLetter = getRandomLetter().letter;
+                if (!options.includes(randomLetter)) {
+                    options.push(randomLetter);
+                }
+            }
+            
+            const shuffledOptions = shuffleArray(options);
+            const container = document.getElementById('missing-options');
+            container.innerHTML = '';
+            
+            shuffledOptions.forEach(option => {
+                const button = document.createElement('button');
+                button.className = 'letter-card p-4 rounded-xl text-2xl font-bold';
+                button.textContent = option;
+                button.onclick = () => {
+                    if (option === missing) {
+                        button.classList.add('correct-answer');
+                        updateScore(15);
+                        setTimeout(generateNewMissing, 1500);
+                    } else {
+                        button.classList.add('wrong-answer');
+                        setTimeout(() => button.classList.remove('wrong-answer'), 500);
+                    }
+                };
+                container.appendChild(button);
+            });
+        }
+
+        // Activity 10: Letter Counter
+        function generateNewCount() {
+            const target = getRandomLetter().letter;
+            document.getElementById('count-target-letter').textContent = target;
+            
+            const count = Math.floor(Math.random() * 4) + 2;
+            const letters = Array(count).fill(target);
+            
+            while (letters.length < 12) {
+                letters.push(getRandomLetter().letter);
+            }
+            
+            const shuffledLetters = shuffleArray(letters);
+            document.getElementById('count-text-display').textContent = shuffledLetters.join(' ');
+            document.getElementById('count-result').textContent = '؟';
+            
+            const options = [count, count + 1, count - 1, count + 2].filter(n => n > 0 && n <= 12);
+            const container = document.getElementById('count-number-options');
+            container.innerHTML = '';
+            
+            options.forEach(option => {
+                const button = document.createElement('button');
+                button.className = 'letter-card p-4 rounded-xl text-2xl font-bold';
+                button.textContent = option;
+                button.onclick = () => {
+                    if (option === count) {
+                        button.classList.add('correct-answer');
+                        document.getElementById('count-result').textContent = count;
+                        updateScore(15);
+                        setTimeout(generateNewCount, 1500);
+                    } else {
+                        button.classList.add('wrong-answer');
+                        setTimeout(() => button.classList.remove('wrong-answer'), 500);
+                    }
+                };
+                container.appendChild(button);
+            });
+        }
+
+        // Activity 11: Vowels
+        function showNewVowelLetter() {
+            const letter = getRandomLetter().letter;
+            const vowels = [`${letter}َ`, `${letter}ِ`, `${letter}ُ`];
+            const vowelNames = ['فتحة', 'كسرة', 'ضمة'];
+            const randomVowel = Math.floor(Math.random() * 3);
+            
+            document.getElementById('vowel-lesson').innerHTML = `
+                <div class="text-8xl font-bold text-emerald-600 mb-4">${vowels[randomVowel]}</div>
+                <div class="text-3xl mb-6 font-bold text-emerald-700">${vowelNames[randomVowel]}</div>
+                <div class="grid grid-cols-3 gap-4 text-4xl">
+                    <div class="bg-emerald-100 p-4 rounded-xl font-bold hover:bg-emerald-200 cursor-pointer transition-all" onclick="playVowelSound('fatha')">${vowels[0]}<br><span class="text-lg">فتحة</span></div>
+                    <div class="bg-emerald-100 p-4 rounded-xl font-bold hover:bg-emerald-200 cursor-pointer transition-all" onclick="playVowelSound('kasra')">${vowels[1]}<br><span class="text-lg">كسرة</span></div>
+                    <div class="bg-emerald-100 p-4 rounded-xl font-bold hover:bg-emerald-200 cursor-pointer transition-all" onclick="playVowelSound('damma')">${vowels[2]}<br><span class="text-lg">ضمة</span></div>
+                </div>
+            `;
+            updateScore(5);
+        }
+
+        function playVowelSound(vowelType) {
+            // Visual feedback for vowel selection
+            updateScore(5);
+        }
+
+        // Activity 12: Memory Game
+        function startMemoryGame() {
+            gameStates.memory = {
+                level: 1,
+                score: 0,
+                sequence: [],
+                playerSequence: [],
+                showingSequence: false
+            };
+            
+            document.getElementById('memory-level').textContent = '1';
+            document.getElementById('memory-score').textContent = '0';
+            
+            generateMemorySequence();
+        }
+
+        function generateMemorySequence() {
+            const state = gameStates.memory;
+            state.sequence = [];
+            state.playerSequence = [];
+            
+            for (let i = 0; i < state.level + 2; i++) {
+                state.sequence.push(getRandomLetter().letter);
+            }
+            
+            showMemorySequence();
+        }
+
+        function showMemorySequence() {
+            const state = gameStates.memory;
+            state.showingSequence = true;
+            
+            document.getElementById('memory-sequence').textContent = 'انتبه للتسلسل...';
+            
+            let index = 0;
+            const showNext = () => {
+                if (index < state.sequence.length) {
+                    document.getElementById('memory-sequence').textContent = state.sequence[index];
+                    index++;
+                    setTimeout(showNext, 1000);
+                } else {
+                    document.getElementById('memory-sequence').textContent = 'أعد التسلسل!';
+                    state.showingSequence = false;
+                    setupMemoryInput();
+                }
+            };
+            
+            setTimeout(showNext, 1000);
+        }
+
+        function setupMemoryInput() {
+            const container = document.getElementById('memory-input');
+            container.innerHTML = '';
+            
+            const availableLetters = shuffleArray([...gameStates.memory.sequence, ...arabicLetters.slice(0, 8).map(l => l.letter)]);
+            const uniqueLetters = [...new Set(availableLetters)].slice(0, 12);
+            
+            uniqueLetters.forEach(letter => {
+                const button = document.createElement('button');
+                button.className = 'letter-card p-3 rounded-xl text-xl font-bold';
+                button.textContent = letter;
+                button.onclick = () => checkMemoryInput(letter);
+                container.appendChild(button);
+            });
+        }
+
+        function checkMemoryInput(letter) {
+            const state = gameStates.memory;
+            if (state.showingSequence) return;
+            
+            state.playerSequence.push(letter);
+            
+            if (letter === state.sequence[state.playerSequence.length - 1]) {
+                if (state.playerSequence.length === state.sequence.length) {
+                    // Correct sequence completed
+                    state.score += state.level * 10;
+                    state.level++;
+                    document.getElementById('memory-score').textContent = state.score;
+                    document.getElementById('memory-level').textContent = state.level;
+                    updateScore(state.level * 10);
+                    
+                    setTimeout(() => {
+                        if (state.level <= 5) {
+                            generateMemorySequence();
+                        } else {
+                            alert(`مبروك! أكملت جميع المستويات! النتيجة النهائية: ${state.score}`);
+                        }
+                    }, 1000);
+                }
+            } else {
+                // Wrong letter
+                alert(`خطأ! التسلسل الصحيح كان: ${state.sequence.join(' - ')}`);
+                setTimeout(startMemoryGame, 1000);
+            }
+        }
+
+        // Activity 13: Letter Classification
+        function generateNewClassification() {
+            const mixedLetters = [
+                ...shuffleArray(lettersWithDots).slice(0, 4),
+                ...shuffleArray(lettersWithoutDots).slice(0, 4)
+            ];
+            const shuffledMixed = shuffleArray(mixedLetters);
+            
+            const container = document.getElementById('classify-letters-pool');
+            container.innerHTML = '';
+            
+            document.getElementById('no-dots-area').innerHTML = '';
+            document.getElementById('with-dots-area').innerHTML = '';
+            
+            shuffledMixed.forEach(letter => {
+                const div = document.createElement('div');
+                div.className = 'letter-card p-4 rounded-xl text-2xl font-bold cursor-pointer';
+                div.textContent = letter;
+                div.draggable = true;
+                div.ondragstart = (e) => e.dataTransfer.setData('text', letter);
+                container.appendChild(div);
+            });
+            
+            setupClassificationDropZones();
+        }
+
+        function setupClassificationDropZones() {
+            ['no-dots-area', 'with-dots-area'].forEach(id => {
+                const zone = document.getElementById(id);
+                zone.ondragover = (e) => e.preventDefault();
+                zone.ondrop = (e) => {
+                    e.preventDefault();
+                    const letter = e.dataTransfer.getData('text');
+                    const isCorrect = (id === 'no-dots-area' && lettersWithoutDots.includes(letter)) ||
+                                    (id === 'with-dots-area' && lettersWithDots.includes(letter));
+                    
+                    if (isCorrect) {
+                        const span = document.createElement('span');
+                        span.className = 'inline-block bg-green-100 p-2 rounded mr-2 text-xl font-bold';
+                        span.textContent = letter;
+                        zone.appendChild(span);
+                        updateScore(15);
+                    }
+                };
+            });
+        }
+
+        // Activity 14: Letter Race
+        function startRaceGame() {
+            gameStates.race = {
+                timeLeft: 30,
+                score: 0,
+                level: 1,
+                active: true
+            };
+            
+            document.getElementById('race-score').textContent = '0';
+            document.getElementById('race-level').textContent = '1';
+            
+            generateRaceQuestion();
+            
+            gameTimers.race = setInterval(() => {
+                gameStates.race.timeLeft--;
+                document.getElementById('race-timer').textContent = gameStates.race.timeLeft;
+                
+                if (gameStates.race.timeLeft <= 0) {
+                    endRaceGame();
+                }
+            }, 1000);
+        }
+
+        function generateRaceQuestion() {
+            if (!gameStates.race || !gameStates.race.active) return;
+            
+            const target = getRandomLetter().letter;
+            document.getElementById('race-letter').textContent = target;
+            
+            const options = [target];
+            const optionCount = Math.min(2 + gameStates.race.level, 4);
+            
+            while (options.length < optionCount) {
+                const randomLetter = getRandomLetter().letter;
+                if (!options.includes(randomLetter)) {
+                    options.push(randomLetter);
+                }
+            }
+            
+            const shuffledOptions = shuffleArray(options);
+            const container = document.getElementById('race-options');
+            container.innerHTML = '';
+            
+            shuffledOptions.forEach(option => {
+                const button = document.createElement('button');
+                button.className = 'letter-card p-4 rounded-xl text-3xl font-bold';
+                button.textContent = option;
+                button.onclick = () => checkRaceAnswer(option, target);
+                container.appendChild(button);
+            });
+        }
+
+        function checkRaceAnswer(selected, target) {
+            if (!gameStates.race || !gameStates.race.active) return;
+            
+            if (selected === target) {
+                gameStates.race.score++;
+                document.getElementById('race-score').textContent = gameStates.race.score;
+                updateScore(10);
+                
+                // Level up every 10 correct answers
+                if (gameStates.race.score % 10 === 0) {
+                    gameStates.race.level++;
+                    document.getElementById('race-level').textContent = gameStates.race.level;
+                }
+                
+                setTimeout(generateRaceQuestion, 300);
+            }
+        }
+
+        function endRaceGame() {
+            if (gameTimers.race) {
+                clearInterval(gameTimers.race);
+                gameTimers.race = null;
+            }
+            
+            if (gameStates.race) {
+                gameStates.race.active = false;
+                alert(`انتهى السباق! نتيجتك النهائية: ${gameStates.race.score} في المستوى ${gameStates.race.level}`);
+            }
+        }
+
+        // Activity 15: Comprehensive Exam
+        function startComprehensiveExam() {
+            gameStates.exam = {
+                currentQuestion: 1,
+                totalQuestions: 10,
+                score: 0,
+                questions: generateExamQuestions()
+            };
+            
+            document.getElementById('exam-score').textContent = '0';
+            showExamQuestion();
+        }
+
+        function generateExamQuestions() {
+            const questionTypes = [
+                // Position questions
+                () => {
+                    const index = Math.floor(Math.random() * arabicLetters.length);
+                    return {
+                        question: `ما الحرف رقم ${index + 1}؟`,
+                        answer: arabicLetters[index].letter,
+                        options: [
+                            arabicLetters[index].letter,
+                            arabicLetters[(index + 1) % arabicLetters.length].letter,
+                            arabicLetters[(index + 2) % arabicLetters.length].letter,
+                            arabicLetters[(index + 3) % arabicLetters.length].letter
+                        ]
+                    };
+                },
+                // Order questions
+                () => {
+                    const letter = getRandomLetter();
+                    const index = arabicLetters.findIndex(l => l.letter === letter.letter);
+                    return {
+                        question: `ما ترتيب حرف ${letter.letter}؟`,
+                        answer: (index + 1).toString(),
+                        options: [
+                            (index + 1).toString(),
+                            (index + 2).toString(),
+                            (index + 3).toString(),
+                            (index).toString()
+                        ].filter(n => parseInt(n) > 0 && parseInt(n) <= arabicLetters.length)
+                    };
+                },
+                // Name questions
+                () => {
+                    const letter = getRandomLetter();
+                    const wrongNames = shuffleArray(arabicLetters.filter(l => l.name !== letter.name)).slice(0, 3);
+                    return {
+                        question: `ما اسم حرف ${letter.letter}؟`,
+                        answer: letter.name,
+                        options: [letter.name, ...wrongNames.map(l => l.name)]
+                    };
+                }
+            ];
+            
+            const questions = [];
+            for (let i = 0; i < 10; i++) {
+                const questionType = questionTypes[Math.floor(Math.random() * questionTypes.length)];
+                questions.push(questionType());
+            }
+            
+            return questions;
+        }
+
+        function showExamQuestion() {
+            const state = gameStates.exam;
+            const question = state.questions[state.currentQuestion - 1];
+            
+            document.getElementById('exam-question-number').textContent = state.currentQuestion;
+            document.getElementById('exam-question').textContent = question.question;
+            document.getElementById('exam-progress').style.width = `${(state.currentQuestion / state.totalQuestions) * 100}%`;
+            
+            const shuffledOptions = shuffleArray(question.options);
+            const container = document.getElementById('exam-options');
+            container.innerHTML = '';
+            
+            shuffledOptions.forEach(option => {
+                const button = document.createElement('button');
+                button.className = 'letter-card p-4 rounded-xl text-xl font-bold';
+                button.textContent = option;
+                button.onclick = () => checkExamAnswer(option, question.answer);
+                container.appendChild(button);
+            });
+        }
+
+        function checkExamAnswer(selected, correct) {
+            const state = gameStates.exam;
+            
+            if (selected === correct) {
+                state.score++;
+                updateScore(20);
+            }
+            
+            document.getElementById('exam-score').textContent = `${state.score}`;
+            
+            if (state.currentQuestion < state.totalQuestions) {
+                state.currentQuestion++;
+                setTimeout(showExamQuestion, 1000);
+            } else {
+                // Exam finished
+                const percentage = (state.score / state.totalQuestions) * 100;
+                let grade = 'يحتاج تحسين';
+                if (percentage >= 90) grade = 'ممتاز';
+                else if (percentage >= 80) grade = 'جيد جداً';
+                else if (percentage >= 70) grade = 'جيد';
+                else if (percentage >= 60) grade = 'مقبول';
+                
+                setTimeout(() => {
+                    alert(`انتهى الامتحان!\nالنتيجة: ${state.score}/${state.totalQuestions}\nالنسبة: ${percentage.toFixed(1)}%\nالتقدير: ${grade}`);
+                }, 1000);
+            }
+        }
+
+        // Display all letters in Activity 15
+        function displayAllLetters() {
+            const container = document.getElementById('all-letters-display');
+            container.innerHTML = '';
+            
+            arabicLetters.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'letter-card p-2 rounded text-center hover:bg-purple-200 cursor-pointer transition-all';
+                div.textContent = item.letter;
+                div.title = `${item.name} - الحرف ${index + 1}`;
+                div.onclick = () => {
+                    div.classList.add('letter-bounce');
+                    setTimeout(() => div.classList.remove('letter-bounce'), 600);
+                    updateScore(2);
+                };
+                container.appendChild(div);
+            });
+        }
+
+        // Initialize all activities
+        function initializeActivities() {
+            // Initialize Activity 1
+            updateExploreDisplay();
+            
+            // Initialize Activity 2
+            newDrawLetter();
+            
+            // Initialize Activity 3
+            showNewLetterForms();
+            
+            // Initialize Activity 4
+            generateMatchQuestion();
+            
+            // Initialize Activity 5
+            generateNewSorting();
+            
+            // Initialize Activity 6
+            showNewFamily();
+            
+            // Initialize Activity 7
+            generateNewTreasure();
+            
+            // Initialize Activity 8
+            generateNewWord();
+            
+            // Initialize Activity 9
+            generateNewMissing();
+            
+            // Initialize Activity 10
+            generateNewCount();
+            
+            // Initialize Activity 11
+            showNewVowelLetter();
+            
+            // Initialize Activity 12
+            setupMemoryInput();
+            
+            // Initialize Activity 13
+            generateNewClassification();
+            
+            // Initialize Activity 14
+            generateRaceQuestion();
+            
+            // Initialize Activity 15
+            displayAllLetters();
+            startComprehensiveExam();
+        }
+
+        // Start the application
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeActivities();
+            updateProgress();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96d9228387dc0e0d',t:'MTc1NDkzMDAwNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
